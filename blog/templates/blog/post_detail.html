@@ -1,0 +1,99 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Post Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css1/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css1/main.css' %}">
+
+<!--===============================================================================================-->
+</head>
+<body>
+    
+    <div class="limiter">
+
+        <div class="container-login100" >
+
+            <div class="wrap-login100 p-l-50 p-r-50 p-t-45 p-b-44" style="height: 500px;">
+                <h1 style="text-align: center; text-decoration: underline;">Details of <span style="color: red;"><b>{{ post.title }}</b></span></h1>
+                <div style="height: 5px; margin-top: 40px;">
+                    <div class="col-md-5" style="text-align: center;"><h2>POST TITLE &nbsp&nbsp&nbsp&nbsp: </h2></div>
+                    <div class="col-md-7" style="text-align: left;"><h2><b>{{ post.title }}</b></h2></div>
+                </div>
+                <div style="margin-top: 45px; height: 50px;">
+                    <div class="col-md-5" style="text-align: center; height: 150px;"><h2>POST TEXT &nbsp&nbsp&nbsp&nbsp: </h2></div>
+                    <div class="col-md-7" style="text-align: left; height: 150px;"><textarea readonly style="height: 150px; width: 225px; overflow-x: hidden; resize: none; border: 2px; border:solid 2px orange; font-size: 13px; border-radius: 8px;">{{ post.text }}</textarea></div>
+                </div>
+                <div style="margin-top: 55px; height: 50px;">
+                    <div class="col-md-5" style="height: 15px; margin-top: 40px; text-align: center;">
+                        <h2>PUBLISHED DATE : </h2>
+                    </div>
+                    <div class="col-md-7" style="height: 15px; margin-top: 40px;">
+                        {% if post.published_date %}
+                        <h4>{{ post.published_date }}</h4>
+                        {% endif %}
+                    </div>
+                </div>
+                <div style="margin-top: 60px; height: 50px;">
+                    <div class="col-md-5" style="height: 15px; margin-top: 40px; text-align: center;">
+                        <h2>To Edit Click this&nbsp&nbsp<span><a><span class="glyphicon 
+        glyphicon-pencil"></span></a></span></h2>
+                    </div>
+                    <div class="col-md-7" style="height: 15px; margin-top: 40px;">
+                        <h2>To Delete Click this</h2>
+                        <form method="POST" class="post-form" align="center">{% csrf_token %}
+                        <button type="submit" class="save btn btn-primary" style="text-align: right;">Delete</button>
+                    </form>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="dropDownSelect1"></div>
+    
+<!--===============================================================================================-->
+    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+    <script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'js1/main.js' %}"></script>
+
+</body>
+</html>
+{% endblock content %}
