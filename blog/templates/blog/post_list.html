@@ -10,17 +10,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-
-
-
-
-
-
 <style>
-
-
-
-
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
   background-color: #555;
@@ -96,9 +86,6 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-
-
-
 .bd-example-modal-lg .modal-dialog{
     display: table;
     position: relative;
@@ -110,23 +97,14 @@
     background-color: transparent;
     border: none;
   }
-
-
-
-
-  .div1{
+	
+.div1{
   border: 6px solid #403e3e;
   border-radius: 25px;  
   opacity: 0.6;transition: 0.3s;
 }
 .div1:hover {opacity: 1}
-
-
-
-
-
-
-
+	
 .wrapper{
   position: absolute;
   top: 50%;
@@ -170,6 +148,7 @@
   -webkit-animation: load7 1.8s infinite ease-in-out;
   animation: load7 1.8s infinite ease-in-out;
 }
+	
 .loader {
   color: #ffffff;
   font-size: 10px;
@@ -231,18 +210,9 @@
 .spanner.show, .overlay.show {
   opacity: 1
 }
-
-
-
-
-
-
 </style>
 </head>
-
-
 <body class="top">
-
 <div class="col-md-6" style="font-size: 15px;">
 	<form action="{% url 'post_dropdown' %}" method="POST">{% csrf_token %}
 	  <select name="sel" class="btn btn-primary dropdown-toggle" style="font-size: 10px;">
@@ -253,6 +223,7 @@
 <spam><button type="submit" class="btn-primary">Sort</button></spam>		
 </form>
 </div>
+	
 <div class="col-md-6 inner-form" style="font-size: 15px; height: 50px;">
 <form type="get" action="{% url 'post_search' %}" align="right" value="{{request.GET.q}}">
     <input type="text" name="q" value="{{request.GET.q}}"  placeholder="Search..." style="width: 300px; font-size: 15px;">
@@ -298,12 +269,6 @@ No search results for this query
   <div class="loader"></div>
 </div>
 
-
-
-
-
-
-
 <div class="form-popup" id="myForm">
   <form class="form-container" method="POST" id="add_post" action="{% url 'post_new' %}">{% csrf_token %}
     <h1 style="text-align: center; text-decoration: underline;"><b>New Post</b></h1>
@@ -319,8 +284,6 @@ No search results for this query
   </form>
   
 </div>
-
-
 <script type="text/javascript">
   $(document).on('submit', '#add_post', function(e){
             e.preventDefault()
@@ -384,12 +347,7 @@ No search results for this query
 
 </script>
 
-
-
 {% for post in posts %}
-
-
-
 <div class="col-lg-4 col-md-12 mb-r post" id="post">
         <div class="card card-image div1" style="border: 6px solid #403e3e">
           <div class="text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3 rounded">
@@ -400,16 +358,9 @@ No search results for this query
           </div>
         </div>
       </div>
-
-
-
-
-
-
 {% endfor %}
+
 <div id="postlist" class="post"></div>
-
-
 <button class="open-button" onclick="openForm()">ADD NEW POST</button>
 {% endif %}
 {% endblock %}
