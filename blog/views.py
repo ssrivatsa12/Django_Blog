@@ -50,111 +50,6 @@ class PostDetail(APIView):
         serializer.save()
         return redirect('post_list')
 
-"""class PostCreate(APIView):
-	renderer_classes = [TemplateHTMLRenderer]
-	template_name = 'blog/post_edit.html'
-
-	def post(self, request):
-		print('HI')
-		if request.method == "POST":
-			serializer = PostSerializer(data=request.data)
-			if serializer.is_valid():
-				serializer.save(author=request.user, published_date=timezone.now())
-				return Response(serializer.data, status=201)
-
-			return Response(serializer.errors, status=400)"""
-
-
-
-
-
-
-
-
-
-
-
-"""@login_required
-def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})"""
-
-"""@api_view(["GET"])
-def post_list(request):
-    posts = Post.objects.all()
-    serializer = PostSerializer(posts, many=True)
-    return Response(serializer.data)"""
-
-"""def post(request):
-	return render(request, 'blog/base.html')"""
-
-"""def post_det(request, pk):
-	post = get_object_or_404(Post, pk=pk)
-	return render(request, 'blog/post_detail.html', {'post':post})"""
-
-
-"""@login_required
-@api_view(['GET'])
-def post_detail(request, pk):
-	post = get_object_or_404(Post, pk=pk)
-	serializer = PostSerializer(post)
-	return Response(serializer.data)
-	#return render(request, 'blog/post_detail.html', {'serializer': serializer})"""
-
-
-"""def post_new(request):
-	data = dict()
-	if request.method == 'POST':
-		form = PostForm(request.POST)
-		if form.is_valid():
-			form.save()
-			data['form_is_valid'] = True
-			posts = Book.objects.all()
-			data['html_post_list'] = render_to_string('blog/post_list.html', {
-				'posts': posts
-			})
-		else:
-			data['form_is_valid'] = False
-	else:
-		form = PostForm()
-
-	context = {'form': form}
-	return JsonResponse(data)"""
-
-
-
-"""def  get(self, request):
-	        title1 = request.GET.get('title', None)
-	        text1 = request.GET.get('text', None)
-	
-	        obj = Post.objects.create(
-	            title = title1,
-	            text = text1,
-	        )
-	
-	        user = {'id':obj.id,'title':obj.title,'text':obj.text}
-	
-	        data = {
-	            'post': post
-	        }
-	        return JsonResponse(data)"""
-
-
-"""def post_new(request):
-	form = PostForm
-	title1 = request.GET.get('title')
-	text1 = request.GET.get('text')
-	obj = Post.objects.create(
-        title = title1,
-        text = text1,
-    )
-
-    user = {'id': obj.id, 'title': obj.title, 'text': obj.text}
-    post.save()
-    data = {
-        'post': post
-    }
-    return JsonResponse(data)"""
 
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
@@ -166,19 +61,6 @@ def post_new(request):
 			return JsonResponse(serializer.data)
 
 		return Response(serializer.errors, status=400)
-
-
-
-'''form = PostForm(request.POST)
-if form.is_valid():
-    post = form.save(commit=False)
-    post.author = request.user
-    post.published_date = timezone.now()
-    post.save()
-    return redirect('post_detail', pk=post.pk)
-else:
-form = PostForm()
-return render(request, 'blog/post_edit.html', {'form': form})'''
 
 @login_required
 @api_view(["GET,POST"])
