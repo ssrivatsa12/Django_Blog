@@ -4,7 +4,6 @@ from .views import PostList, PostDetail
 
 urlpatterns = [
     path('',PostList.as_view(), name='post_list'),
-    #path('post/detail/<int:pk>/', views.post_det, name='post_det'),
     #path('delete/<int:pk>/', views.post_delete, name='post_delete'),
     path('post/<int:pk>/', PostDetail.as_view(), name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
