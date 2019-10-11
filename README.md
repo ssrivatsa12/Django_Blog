@@ -11,11 +11,13 @@ In this Project I created a Blog using the below Tools
 -> "mysite" is a project for this Blog
 -> "api" is an app used for creating web apis of this Blog
 -> "blog" is an app for creating Blog
--> "registration" is an app for SignUp and Login
+-> "registration" is an app for SignUp and Login. Forgot Password and Reset Password Link to Email also included
 
 
 Speciality:
   The speciality of this blog is, Whenever we create a new post the page is not reloaded because of using AJAX. For the Front page I'm retrieving the data from the API.
   
 NOTE:
-  EDIT IS DISABLED.
+  -> EDIT IS DISABLED.
+  -> Signup is not showing.
+  
